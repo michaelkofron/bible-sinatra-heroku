@@ -11,6 +11,7 @@ class SearchController < ApplicationController
 
     post '/search' do
         search = params[:search]
+        Quotes.clear_all
         if search.include? " "
             search.gsub!(" ", "_")
         end

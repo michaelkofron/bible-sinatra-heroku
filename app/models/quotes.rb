@@ -20,7 +20,7 @@ class Quotes
     end
 
     def self.clear_all
-        @@refs = []
-        @@quotes = []
+        @@refs.clear
+        @@quotes.clear
     end
 end
