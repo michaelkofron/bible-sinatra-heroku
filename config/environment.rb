@@ -1,7 +1,7 @@
 ENV['SINATRA_ENV'] ||= "production"
 
 require 'bundler/setup'
-Bundler.require(:default, ENV['DATABASE_URL'])
+Bundler.require(:default, ENV['SINATRA_ENV'])
 
 configure :production do
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
