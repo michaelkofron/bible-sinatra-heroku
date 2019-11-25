@@ -1,6 +1,7 @@
 <html>
 <head> 
     <link href="<%= url('/searchresult.css') %>" rel="stylesheet" type="text/css">
+    <title>Profile</title>
 </head>
     
 <body>
@@ -19,7 +20,7 @@
             <h4 class="profile"><a href='search/<%= fav.topic %>'>Topic: <%= fav.topic.upcase %></a></h4>
             <a href=<%= bible_chapter(fav.verse) %> target="_blank"><%= fav.verse %></a>
             <h4><%= fav.body %></h4>
-            <a href="https://twitter.com/share?url=google.com&text=<%= fav.body %> - <%= fav.verse %>" class="twitter-share-button" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a href="https://twitter.com/share?&text=<%= fav.body %> - <%= fav.verse %>" class="twitter-share-button" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <br>
             <br>
             <form action="/delete" method="POST">
