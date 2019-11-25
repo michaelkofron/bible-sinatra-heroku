@@ -43,7 +43,7 @@ class SearchController < ApplicationController
         search = params[:search]
 
         @favorite = Favorite.create(topic: params[:search], verse: params[:ref], body: params[:quote], user_id: session[:user_id])
-
+        Quotes.clear_all
         redirect "search/#{params[:search]}"
     end
 
@@ -64,6 +64,7 @@ class SearchController < ApplicationController
 
     post '/deletefromsearch' do
         Favorite.where(verse: params[:ref]).destroy_all
+        Quotes.clear_all
         redirect "search/#{params[:search]}"
     end
 end
