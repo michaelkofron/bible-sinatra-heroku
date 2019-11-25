@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+    outline: none;
+  }
+
+a.twitter-share-button {
+    padding: 5px;
+}
+
+.box {
+    position: relative;
+    width: 300px;
+    left: 30%;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 2px;
+    padding: 50px;
+    margin: 20px;
+}
+
+
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+p {
+    font-family: Raleway, sans-serif;
+    text-align: center right;
+}
+
+a {
+    color: red;
+    text-decoration: underline;
+    font-family: Raleway, sans-serif;
+    text-align: center right;
+}
+
+a.none {
+    text-align: center;
+}
+
+h1 {
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px
+}
+
+h4 {
+    font-family: Raleway, sans-serif;
+}
+
+h4#profile {
+    font-family: Raleway, sans-serif;
+    position: absolute;
+    top: 0px;
+    right: 16px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+h4#logout {
+    font-family: Raleway, sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 16px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+h4#home {
+    font-family: Raleway, sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 500px;
+    right: 0px;
+    padding: 10px
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.profile {
+    text-align: center;
+    color: red;
+}

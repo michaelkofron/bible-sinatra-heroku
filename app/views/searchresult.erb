@@ -1,0 +1,47 @@
+<html>
+<head>
+
+</head>
+    <link href="<%= url('/searchresult.css') %>" rel="stylesheet" type="text/css">
+
+    
+<body>
+    <h4 id="logout"><a href="/logout">Logout</a></h4>
+
+    <h4 id="home"><a href="/search">Home</a></h4>
+
+    <h4 id="profile"><a href="/profile"><%= @user.username %></a></h4>
+
+    <div class="title">
+        <h1><%= @search.upcase %></h1>
+    </div>
+    <% counter = 1 %>
+    <% @quotes_references.zip(@quotes_texts).each do |ref, quote| %>
+        <div class="box">
+            <a href=<%= bible_chapter(ref) %> target="_blank"><%= ref %></a>
+            <h4><%= quote %></h4>
+            <a href="https://twitter.com/share?url=google.com&text=<%= quote %> - <%= ref %>" class="twitter-share-button" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <br>
+            <br>
+            <% if Favorite.exists?(:verse => ref) == true %>
+                <form action="/deletefromsearch" method="POST">
+                    <input type="hidden" name="search" id="search" value="<%= @search %>">
+                    <input type="hidden" name="ref" id="ref" value="<%= ref %>">
+                    <button type="submit" name="submit" value="Submit" class="btn-link">UnFavorite</button>
+                </form>
+            <% else %>
+                <form action="/profile" method="POST">
+                    <input type="hidden" name="search" id="search" value="<%= @search %>">
+                    <input type="hidden" name="ref" id="ref" value="<%= ref %>">
+                    <input type="hidden" name="quote" id="quote" value="<%= quote %>">
+                    <button type="submit" name="submit" value="Submit" class="btn-link">Favorite</button>
+                </form>
+            <% end %>
+            <h4><%= counter %></h4>
+            <% counter += 1 %>
+        </div>
+    <% end %>
+</body>
+
+
+</html>

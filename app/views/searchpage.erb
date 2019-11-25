@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bible Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <link href="<%= url('/searchstyle.css') %>" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+<h4 id="logout"><a href="/logout">Logout</a></h4>
+
+<h4><a href="/profile"><%= @user.username %></a></h4>
+
+<br>
+
+<h1>What does The Bible say about </h1>
+<br>
+
+<div class="search-box">
+<form method="POST" action="/search">
+     <input type="text" name="search" id="search" placeholder="" autocomplete="off"><span></span>
+     <input type="submit" id="submit-form" class="hidden">
+</form>
+</div>
+
+<label for="submit-form" tabindex="0"><h1 id="question">?</h1></label>
+<p><-- click me.</p>
+
+
+</body>
+
+</html>
