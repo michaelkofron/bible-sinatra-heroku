@@ -18,4 +18,9 @@ class Quotes
     def self.all_quotes
         @@quotes
     end
+
+    def self.clear_all
+        @@refs = []
+        @@quotes = []
+    end
 end
