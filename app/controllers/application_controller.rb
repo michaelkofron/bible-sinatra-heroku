@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
         use Rack::Session::Cookie, :key => 'rack.session',
                            #:domain => 'foo.com',  
                            :path => '/',
-                           :expire_after => 120, # In seconds
+                           :expire_after => 18000, # In seconds
                            :secret => 'some_secret'
     end
 
