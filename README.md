@@ -5,4 +5,4 @@ and save Bible quotes to their profiles.
 
 To run on your local machine clone this repo, run "bundle install", and then run "shotgun" from the terminal. Copy the link provided to you by the terminal and paste into your browser.
 
-hello
+To use in your browser without downloading go to https://bible-search-sinatra.herokuapp.com/
