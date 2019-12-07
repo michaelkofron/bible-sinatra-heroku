@@ -8,4 +8,6 @@ use Rack::MethodOverride
 
 use SearchController
 
+use ProfileController
+
 run ApplicationController

@@ -1,10 +1,8 @@
 <html>
 <head>
-
+    <title><%= @search_display.upcase %></title>
 </head>
     <link href="<%= url('/searchresult.css') %>" rel="stylesheet" type="text/css">
-    <title><%= @search %></title>
-    
 <body>
     <h4 id="logout"><a href="/logout">Logout</a></h4>
 
@@ -13,20 +11,24 @@
     <h4 id="profile"><a href="/profile"><%= @user.username %></a></h4>
 
     <div class="title">
-        <h1><%= @search.upcase %></h1>
+        <% if @error == nil %>
+            <h1><%= @search_display.upcase %></h1>
+        <% else %>
+            <h1><%= @error %></h1>
+        <% end %>
     </div>
     <% counter = 1 %>
     <% @quotes_references.zip(@quotes_texts).each do |ref, quote| %>
         <div class="box">
             <a href=<%= bible_chapter(ref) %> target="_blank"><%= ref %></a>
             <h4><%= quote %></h4>
-            <a href="https://twitter.com/share?&text=<%= quote %> - <%= ref %>" class="twitter-share-button" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a href="https://twitter.com/share?url=google.com&text=<%= quote %> - <%= ref %>" class="twitter-share-button" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <br>
             <br>
             <% if Favorite.exists?(:verse => ref) == true %>
-                <form action="/deletefromsearch" method="POST">
+                <form action="/deletefromsearch/<%= Favorite.find_by(verse: ref).id%>" method="POST">
                     <input type="hidden" name="search" id="search" value="<%= @search %>">
-                    <input type="hidden" name="ref" id="ref" value="<%= ref %>">
+                    <input type="hidden" id="hidden" name="_method" value="DELETE">
                     <button type="submit" name="submit" value="Submit" class="btn-link">UnFavorite</button>
                 </form>
             <% else %>

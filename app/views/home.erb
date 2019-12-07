@@ -11,6 +11,10 @@
             <input type="submit" name="submit" id="submit" value="submit" class="hidden">
             <label for="submit" tabindex="0"><h1>--></h1></label>
         </form>
+
+        <% if @error != nil %>
+            <p><%= @error %></p>
+        <% end %>
         
         
         <a href="/signup" >create account</a>

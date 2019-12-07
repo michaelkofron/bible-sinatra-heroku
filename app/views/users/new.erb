@@ -11,6 +11,14 @@
             <input type="submit" id="submit" value="submit" class="hidden">
             <label for="submit" tabindex="0"><h1>--></h1></label>
         </form>
+
+        <% if @errors != nil %>
+            <% if @errors.any? %>
+                <% @errors.each do |msg| %>
+                    <p><%= msg %></p>
+                <% end %>
+            <% end %>
+        <% end %>
         
         
         <a href="/" >already have an account?</a>

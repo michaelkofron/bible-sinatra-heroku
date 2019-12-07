@@ -31,24 +31,18 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/signup' do
-        if params[:username] == "" || params[:password] == ""
-            redirect '/signup'
-        elsif User.find_by(username: params[:username])
-            redirect '/signup!'
-        else
-            @user = User.create(username: params[:username], password: params[:password])
+        @user = User.new(username: params[:username], password: params[:password])
+
+        if @user.valid?
+            @user.save
             session[:user_id] = @user.id
             redirect '/search'
+        else
+            @errors = @user.errors.full_messages
+            erb :'users/new'
         end
     end
 
-    get '/signup!' do
-        if !logged_in?
-            erb :'users/newredo'
-        else
-            redirect '/search'
-        end
-    end
 
     get '/login' do
         if !logged_in?
@@ -64,7 +58,12 @@ class ApplicationController < Sinatra::Base
             session[:user_id] = user.id
             redirect '/search'
         else
-            redirect '/login'
+            if user == nil
+                @error = "That username does not exist"
+            elsif user && !user.authenticate(params[:password])
+                @error = "Incorrect password"
+            end
+            erb :home
         end
     end
 
@@ -81,16 +80,6 @@ class ApplicationController < Sinatra::Base
 
         def logged_in?
             !!current_user
-        end
-
-        def log_in(email, password)
-            user = User.find_by_id(id: session[:user_id])
-
-            if user && user.authenticate(password)
-                session[:user_id] = user.id
-            else
-                redirect '/login'
-            end
         end
 
         def current_user
