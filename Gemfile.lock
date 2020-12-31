@@ -29,7 +29,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.13.0)
     mustermann (1.0.3)
-    nokogiri (1.10.4)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     open_uri_redirections (0.2.1)
     pg (0.15.0)
@@ -82,7 +82,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (= 4.2.5)
   bcrypt
-  nokogiri (= 1.10.4)
+  nokogiri (= 1.10.10)
   open_uri_redirections (= 0.2.1)
   pg (= 0.15)
   pry
