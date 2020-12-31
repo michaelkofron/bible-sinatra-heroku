@@ -13,7 +13,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem "tux"
-gem 'nokogiri', '1.10.4'
+gem 'nokogiri', '1.10.10'
 gem 'open_uri_redirections', '0.2.1'
 
 group :development do
